@@ -25,15 +25,47 @@ let addScore=(val)=>{
     score+=val;
     rootElement.render(<App />);
 }
+const Run=()=>{
+    return(
+        <>
+         <button onClick={()=>{handleScoreClick(1)}}>1</button>
+         <button onClick={()=>{handleScoreClick(2)}}>2</button>
+         <button onClick={()=>{handleScoreClick(3)}}>3</button>
+         <button onClick={()=>{handleScoreClick(4)}}>4</button>
+         <button onClick={()=>{handleScoreClick(5)}}>5</button>
+         <button onClick={()=>{handleScoreClick(6)}}>6</button>
+        </>
+    )
+}
+const handleScoreClick=(val)=>{
+    document.getElementById('run').value=val;
+}
+const handleFormSubmit=(event)=>{
+    console.log("clicked")
+     event.preventDefault()
+     const run=Number.parseInt(document.getElementById('run').value);
+     const comment=document.getElementById('comment').value
+     document.getElementById('comment').value=""
+     console.log(comment)
+     addScore(run)
+}
+const Form=()=>{
+    return(
+        <form onSubmit={handleFormSubmit}>
+           <input placeholder="score" id="run"/>
+           <input placeholder="comment" id="comment"/>
+           <button>submit</button>
+        </form>
+    )
+}
 const App=()=>(
        <>
          <h1>Score : {score}/ {wickets}</h1>
-         <button onClick={()=>addScore(1)}>1</button>
-         <button onClick={()=>addScore(2)}>2</button>
-         <button onClick={()=>addScore(3)}>3</button>
-         <button onClick={()=>addScore(4)}>4</button>
-         <button onClick={()=>addScore(5)}>5</button>
-         <button onClick={()=>addScore(6)}>6</button>
+         <Run/>
+         <br/>
+         <br/>
+         <Form/>
+         <hr/>
        </>
 );
 
