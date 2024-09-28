@@ -3,6 +3,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { Box, Grid, Typography } from '@mui/material';
 import Divider from '@mui/material/Divider';
+import NavBar from './NavBar';
 
 export const MovieDetails = () => {
     const location = useLocation();
@@ -21,6 +22,10 @@ export const MovieDetails = () => {
     }, [])
     return (
         <Grid container spacing={2} sx={{ display: "flex",justifyContent:"center", alignItems:"center",width:"100vw", height: "100vh" }}>
+            <Grid item xs={12}>
+             {/* Navbar Area */}
+                 <NavBar />
+            </Grid>
             <Grid item sm={12} md={5} sx={{ color: "white", backgroundColor: "green", display: "flex", alignItems:"center", justifyContent:"center" , height:'90%'}}>
                 {
                     movie
