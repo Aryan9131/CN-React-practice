@@ -9,14 +9,12 @@ export const MovieDetails = () => {
     const location = useLocation();
     const currentPath = location.pathname;
     const { id } = useParams(); // Extract the movie ID from the URL
-    console.log('currentPathdId : ' + id);
     const [movie, setMovie] = React.useState(undefined)
     React.useEffect(() => {
         async function getMovie() {
             const movieResponse = await fetch(`https://www.omdbapi.com/?i=${id}&plot=full&apikey=${process.env.REACT_APP_APIKEY}`);
             const movieData = await movieResponse.json();
             setMovie(movieData);
-            console.log(JSON.stringify(movieData))
         }
         getMovie();
     }, [])
