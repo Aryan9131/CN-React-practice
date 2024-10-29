@@ -13,7 +13,7 @@ export const MovieDetails = () => {
     const [movie, setMovie] = React.useState(undefined)
     React.useEffect(() => {
         async function getMovie() {
-            const movieResponse = await fetch(`https://www.omdbapi.com/?i=${id}&plot=full&apikey=1e6d9e90`);
+            const movieResponse = await fetch(`https://www.omdbapi.com/?i=${id}&plot=full&apikey=${process.env.REACT_APP_APIKEY}`);
             const movieData = await movieResponse.json();
             setMovie(movieData);
             console.log(JSON.stringify(movieData))
