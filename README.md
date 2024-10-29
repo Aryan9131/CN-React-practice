@@ -1,7 +1,3 @@
-Here's a sample README for your **MovieCatalog** project made using the OMDB API, React, and React Router. You can modify it as needed:
-
----
-
 # MovieCatalog
 
 Welcome to **MovieCatalog**, a web application built with React and powered by the OMDB API. This application allows users to search for movies, see recommendations, like or unlike movies, and view full movie details.
