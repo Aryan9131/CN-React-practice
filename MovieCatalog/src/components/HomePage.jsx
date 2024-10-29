@@ -43,7 +43,7 @@ export const HomePage=()=>{
       console.log(JSON.stringify(searchResults))
    },[searchResults])
    const showSuggestions=async (typedVal)=>{
-      const fetchedMoviesResponse=await fetch(`https://www.omdbapi.com/?s=${typedVal}&plot=full&page=1&apikey=1e6d9e90`);
+      const fetchedMoviesResponse=await fetch(`https://www.omdbapi.com/?s=${typedVal}&plot=full&page=1&apikey=${process.env.REACT_APP_APIKEY}`);
       const fetchedMovies=await fetchedMoviesResponse.json();
       setSearchResults(fetchedMovies.Search)
       console.log("fetched Movies result -->"+fetchedMovies.Search);
